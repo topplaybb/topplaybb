@@ -1,36 +1,40 @@
 # Starting file for LAB 3-2
-# Include your course number, student first and last name, and date in the comment header
 
-# display a welcome message
-print("The Test Scores application")
-print()
-print("Enter test scores")
-print("Enter 999 to end input")
-print("======================")
+print("The Test Scores program")
 
-# initialize variables
-counter = 0
-score_total = 0
-test_score = 0
+another_set = "y"
 
-while test_score != 999:
-    test_score = int(input("Enter test score: "))
-    if test_score >= 0 and test_score <= 100:
-        score_total += test_score
-        counter += 1
-    elif test_score == 999:
-        break
+while another_set.lower() == "y":
+    print("Enter test scores")
+    print("Enter 'end' to end input")
+    print("=" * 31)
+
+    total_score = 0
+    score_count = 0
+
+    while True:
+        entry = input("Enter test score: ")
+
+        if entry.lower() == "end":
+            break
+
+        score = int(entry)
+        if 0 <= score <= 100:
+            total_score += score
+            score_count += 1
+        else:
+            print("Test score must be from 0 through 100. Try again.")
+
+    print("=" * 31)
+    if score_count > 0:
+        average_score = round(total_score / score_count)
+        print(f"Total Score: {total_score}")
+        print(f"Average Score: {average_score}")
     else:
-        print(f"Test score must be from 0 through 100. "
-              f"Score discarded. Try again.")
+        print("No valid scores entered.")
 
-# calculate average score
-average_score = round(score_total / counter)
-                
-# format and display the result
-print("======================")
-print(f"Total Score: {score_total}"
-      f"\nAverage Score: {average_score}")
-print()
+    print()
+    another_set = input("Enter another set of test scores (y/n)? ")
+    print()
+
 print("Bye!")
-
