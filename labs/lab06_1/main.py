@@ -7,17 +7,16 @@ def display_welcome():
     print("")
 
 def get_scores():
-    score_total = 0
-    counter = 0
+    scores= [] # inilialize an empty list
     while True:
         score = input("Enter test score: ")
         if score == "x":
-            return  score_total, counter
+            return scores  
         else:
             score = int(score)
             if score >= 0 and score <= 100:
-                score_total += score
-                counter += 1 
+              # add the score to out list
+              scores.append(score)
             else:
                 print("Test score must be from 0 through 100. " +
                       "Score discarded. Try again.")
